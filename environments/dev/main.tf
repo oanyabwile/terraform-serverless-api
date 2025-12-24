@@ -24,3 +24,17 @@ module "tasks_table" {
     Environment = "dev"
   }
 }
+
+module "tasks_lambda" {
+  source = "../../modules/lambda"
+
+  function_name = "tasks-api-dev"
+
+  table_name = module.tasks_table.table_name
+  table_arn  = module.tasks_table.table_arn
+
+  tags = {
+    Project     = "terraform-serverless-api"
+    Environment = "dev"
+  }
+}
