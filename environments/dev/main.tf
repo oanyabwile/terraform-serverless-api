@@ -38,3 +38,19 @@ module "tasks_lambda" {
     Environment = "dev"
   }
 }
+
+module "tasks_api" {
+  source = "../../modules/api-gateway"
+
+  api_name = "tasks-api"
+
+  lambda_invoke_arn    = module.tasks_lambda.invoke_arn
+  lambda_function_name = module.tasks_lambda.function_name
+
+  stage_name = "dev"
+
+  tags = {
+    Project     = "terraform-serverless-api"
+    Environment = "dev"
+  }
+}
