@@ -1,0 +1,17 @@
+# Terraform
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+.terraform.lock.hcl
+
+# AWS
+.aws/
+aws/
+awscliv2.zip
+
+# Python
+.venv/
+__pycache__/
+
+# Environment / secrets
+.env
